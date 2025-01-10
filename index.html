@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MMMU</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI">
+    <meta name="keywords" content="MMMU, LMM, LMM Evaluation, Vision Language Model, Large Language Model, Large Multimodal Model, artificial intelligence, AI, AGI, artificial general intelligence">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI</title>
+
+    <link rel="icon" href="./static/images/agmmu_icon2.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <script src="https://kit.fontawesome.com/fff5b27ec1.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/eaf1856e6f.js" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title is-bold">
+                <img src="static/images/agmmu_icon2.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+                <span class="mmmu" style="vertical-align: middle">AgMMU</span>
+              </h1>
+              <h2 class="subtitle is-3 publication-subtitle">
+                A Comprehensive Agricultural Multimodal Understanding and Reasoning Benchmark
+              </h2>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Aruna Gauba*<sup>1</sup>,</span>
+                <span class="author-block">Irene Pi*<sup>2</sup>,</span>
+                <span class="author-block">
+                  <a href="https://yunzeman.github.io/" style="text-decoration: none; color: inherit;" target="_blank">Yunze Man†<sup>3</sup></a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://ziqipang.github.io/" style="text-decoration: none; color: inherit;" target="_blank">Ziqi Pang†<sup>3</sup></a>,
+                </span>
+                <br>
+                <span class="author-block">
+                  <a href="https://vikram.cs.illinois.edu/" style="text-decoration: none; color: inherit;">Vikram S. Adve<sup>3</sup></a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://yxw.cs.illinois.edu/" style="text-decoration: none; color: inherit;">Yu-Xiong Wang<sup>3</sup></a>,
+                </span>
+              </div>
+
+              <br>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><b>MMMU Team</b></span>
+              </div>
+
+              <br>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">*Equal Contribution,</span>
+                <span class="author-block">†Project Lead</span>
+                <br>
+                <span class="author-block"><a href="mailto:ziqip2@illinois.edu">ziqip2@illinois.edu</a>,</span>
+                <span class="author-block"><a href="mailto:yunzem2@illinois.edu">yunzem2@illinois.edu</a></span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2311.16502" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/datasets/MMMU/MMMU" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="font-size:18px">🤗</span>
+                      <span>MMMU</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/MMMU-Benchmark/MMMU" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon has-text-white">
+                        <i class="fa-solid fa-trophy"></i>
+                      </span>
+                      <span>Leaderboard</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://eval.ai/web/challenges/challenge-page/2179/overview" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon has-text-white">
+                        <i class="fa-solid fa-medal"></i>
+                      </span>
+                      <span>EvalAI</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://twitter.com/xiangyue96/status/1729698316554801358" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon has-text-white">
+                        <i class="fa-brands fa-x-twitter"></i>
+                      </span>
+                      <span>Twitter</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#examples" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon has-text-white">
+                        <i class="fa-solid fa-book"></i>
+                      </span>
+                      <span>Examples</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop has-text-centered">
+        <img src="static/images/agmmu_overview.png" alt="agmmu overview" class="center"/>
+        <p>Overview of the AgMMU dataset. is a multimodal knowledge-intensive dataset with the expertise of agricultural domain data. Vision-language models (VLMs) have to observe the details of images and provide factually precise answers. Enabled by real-world user-expert conversations, AgMMU features 3390 open-ended questions for factual questions (three examples on the bottom left), 5793 multiple-choice evaluation like conventional vision-language benchmarks (other examples in the figure), and an agricultural knowledge base with 205,399 pieces of facts for model fine-tuning.  We hope AgMMU can benefit both knowledge-intensive VLMs and the social good of agriculture.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="margin-bottom: 2vh;">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">🔔News</h2>
+            <div class="content has-text-justified">
+              <p>
+                <b>🔥[2025-01-10] <a href="https://arxiv.org/abs/2409.02813">AgMMU</a> is out on arXiv! 🚀</b>
+              </p>
+              <!-- <p>
+                <b>🚀[2024-01-31]: We added Human Expert performance on the <a href="#leaderboard">Leaderboard</a>!🌟</b>
+              </p>
+              <p>
+                <b>🔥[2023-12-04]: Our evaluation server for the test set is now available on <a href="https://eval.ai/web/challenges/challenge-page/2179/overview"><b>EvalAI</b></a>. We welcome all submissions and look forward to your participation! 😆</b>
+              </p> -->
+          </div>
+            <h2 class="title is-3">Introduction</h2>
+            <div class="content has-text-justified">
+              <p>
+                We curate a dataset AgMMU for evaluating and developing vision-language models (VLMs) to produce factually accurate answers for knowledge-intensive expert domains. Our AgMMU concentrates on one of the most socially beneficial domains -- agriculture, which requires connecting detailed visual observation with precise knowledge to diagnose, \emph{e.g.}, pest identification, management instructions, etc. As a core uniqueness of our dataset, all facts, questions, and answers are extracted from 116,231 conversations between real-world users and authorized agricultural experts from US universities. After automatic processing using GPT-4o, LLaMA-70B, LLaMA-405B, AgMMU features a evaluation set of 5,793 multiple-choice evaluation questions paired and 3,390 factual open questions. We provide a development set containing 205,399 pieces of agricultural knowledge, encompassing disease identification, symptom and visual issue descriptions, management instructions, insect and pest identification, and species identification. As a multimodal factual dataset, it reveals that existing VLMs face significant challenges with questions requiring both detailed image perception and factual knowledge. Moreover, open-source VLMs still show a substantial performance gap compared to proprietary ones. To advance the development of knowledge-intensive VLMs, we conduct fine-tuning experiments using our development set, which improves LLaVA-1.5 by 4.7\% on multiple-choice questions and 11.6\% on open questions. We hope that our AgMMU can serve both as a \textbf{evaluation benchmark} dedicated to agriculture and a \textbf{development suite} for incorporating knowledge-intensive expertise into general-purpose VLMs.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+    </section>
+
+    <!-- DATASET SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mmmu">
+          <img src="static/images/agmmu_icon2.png" alt="Logo" class="mmmu-logo"/>
+          <span class="mmmu">AgMMU Benchmark</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview</h2>
+            <div class="content has-text-justified">
+              <p>
+                AgMMU, short for "Agricultural Multimodal Understanding", is a specially curated benchmark aiming at multimodal understanding in the agricultural domain. Besides the significance of agriculture-related research, our AgMMU is also a novel benchmark for knowledge intensive multimodal understanding of general vision-language models since agriculture-related questions generally require precise comprehension of image details (e.g., pest identification) and accurate memorization of facts (e.g., providing management suggestions). To support studies on agricultural and knowledge-intensive VLMs, our AgMMU constructs a benchmark that contains both an agricultural knowledge base for training and an evaluation set with multiple-choice and open-ended questions. All the data for AgMMU is collected from the <a href="https://ask2.extension.org" class="">AskExtension</a> 2013-2024, which is a forum connecting users with agricultural questions to experts from Cooperative Extension/University staff within Land-Grant institutions from across the United States. These questions cover a wide range of plant knowledge, including weeds/invasive plants management, insects/pests control, general growing advice, generic plant identification, and disease/environmental stress and nutrient deficiency management.</p>
+              <img src="static/images/agmmu_statistics.png" alt="agmmu statistics" class="center">
+              <br>
+              <p>
+                <b>Distribution and Coverage:</b> In the figure above, we show the distribution of agriculture subdomains and knowledge types, between AskExtension raw data and our curated AgMMU. We have two key observations: (1) The original AskExtension dataset is severely skewed in both subdomains and knowledge types. Subdomains like nutrient deficiency and environmental stress domains have significantly less samples than dominating domains such as disease or species identification. This imbalance is inevitably carried over to knowledge types after the knowledge extraction stage. (2) AgMMU demonstrates a much more balanced distribution in both perspectives. This is exceptionally important for our evaluation set, where we aim for proposing an all-encompassing evaluation benchmark that examines different faces of models without inductive bias. We also demonstrate the geographic distribution of the data we collected from AskExtension in the United States in Figure~\ref{fig:figure3} (a).
+              </p>
+              <p>
+                <b>Realistic Images:</b> Our AgMMU also features significant challenges in the quality and number of images. The images in our benchmark are generally uploaded by users in various quality, resolution, and aspect ratios. This differs from the photography-level images in datasets like iNaturalist. As shown in the top overview figure, AgMMU realistically reflect the multimodal everyday scenarios encountered by gardeners and farmers. Our benchmark also exhibits the necessity of \emph{multi-image understanding} challenge, since the user uploaded several images and the experts rely on a joint reasoning of them to make the final conclusion.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Comparisons with Existing Benchmarks</h2>
+            <div class="content has-text-justified">
+              <p>
+                To further distinguish the difference between <i>dataset</i> and other existing ones, we elaborate the benchmark details in Figure.
+                From the <i>breadth</i> perspective, the prior benchmarks are heavily focused on daily knowledge and common sense.
+                The covered image format is also limited. Our benchmark aims to cover college-level knowledge with 30 image formats including diagrams,
+                tables, charts, chemical structures, photos, paintings, geometric shapes, music sheets, medical images, etc.
+                In the <i>depth</i> aspect, the previous benchmarks normally require commonsense knowledge or simple physical or temporal reasoning.
+                In contrast, our benchmark requires deliberate reasoning with college-level subject knowledge.
+              </p>
+              <div class="content has-text-centered">
+                <img src="static/images/compare.Jpeg" alt="algebraic reasoning" class="center">
+                <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3">Statistics</h2>
+            <div class="carousel results-carousel">
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/mmmu_subject_distribution.Jpeg" alt="algebraic reasoning" width="95%"/>
+                  <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/statistics.png" alt="arithmetic reasoning" width="40%"/>
+                  <p> Key statistics of the MMMU benchmark</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/image_type_count.png" alt="arithmetic reasoning" width="80%"/>
+                  <p> Distribution of image types in the MMMU dataset</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mmmu">Experiment Results</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+
+
+
+
+
+
+      </div>
+    </section>
+
+    <!-- @PAN TODO: bibtex -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3 has-text-centered">BibTeX</h2>
+        <pre><code>
+          @inproceedings{gauba2025agmmu,
+            title={AgMMU: A Comprehensive Agricultural Multimodal Understanding and Reasoning Benchmark},
+            author={Aruna Gauba and Irene Pi and  Yunze Man and  Ziqi Pang and Vikram S. Adve and  Yu-Xiong Wang},
+            booktitle={arXiv},
+            year={2025},
+          }
+    </code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">MathVista</a> and <a href="https://mmmu-benchmark.github.io/">MMMU</a>, licensed under a <a rel="license"
+                                                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
