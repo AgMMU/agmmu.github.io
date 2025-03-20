@@ -144,8 +144,8 @@
 
     <section class="hero teaser">
       <div class="container is-max-desktop has-text-centered">
-        <img src="static/images/agmmu_overview.png" alt="agmmu overview" class="center"/>
-        <p>Overview of the AgMMU dataset. is a multimodal knowledge-intensive dataset with the expertise of agricultural domain data. Vision-language models (VLMs) have to observe the details of images and provide factually precise answers. Enabled by real-world user-expert conversations, AgMMU features 3390 open-ended questions for factual questions (three examples on the bottom left), 5793 multiple-choice evaluation like conventional vision-language benchmarks (other examples in the figure), and an agricultural knowledge base with 205,399 pieces of facts for model fine-tuning.  We hope AgMMU can benefit both knowledge-intensive VLMs and the social good of agriculture.
+        <img src="static/images/agmmu_overview_v2.png" alt="agmmu overview" class="center"/>
+        <p> <font color="#118ab2">AgMMU</font> is a multimodal knowledge-intensive dataset with the expertise of agricultural domain data. Vision-language models (VLMs) have to observe the details of images and provide factually precise answers. Enabled by real-world user-expert conversations, AgMMU features 3390 open-ended questions for factual questions (OEQs), 5793 multiple-choice evaluation like conventional vision-language benchmarks (MCQs), and an agricultural knowledge base with 205,399 pieces of facts for model fine-tuning.  We hope AgMMU can benefit both knowledge-intensive VLMs and the social good of agriculture.
         </p>
       </div>
     </section>
@@ -170,7 +170,14 @@
             <h2 class="title is-3">Introduction</h2>
             <div class="content has-text-justified">
               <p>
-                We curate a dataset AgMMU for evaluating and developing vision-language models (VLMs) to produce factually accurate answers for knowledge-intensive expert domains. Our AgMMU concentrates on one of the most socially beneficial domains -- agriculture, which requires connecting detailed visual observation with precise knowledge to diagnose, \emph{e.g.}, pest identification, management instructions, etc. As a core uniqueness of our dataset, all facts, questions, and answers are extracted from 116,231 conversations between real-world users and authorized agricultural experts from US universities. After automatic processing using GPT-4o, LLaMA-70B, LLaMA-405B, AgMMU features a evaluation set of 5,793 multiple-choice evaluation questions paired and 3,390 factual open questions. We provide a development set containing 205,399 pieces of agricultural knowledge, encompassing disease identification, symptom and visual issue descriptions, management instructions, insect and pest identification, and species identification. As a multimodal factual dataset, it reveals that existing VLMs face significant challenges with questions requiring both detailed image perception and factual knowledge. Moreover, open-source VLMs still show a substantial performance gap compared to proprietary ones. To advance the development of knowledge-intensive VLMs, we conduct fine-tuning experiments using our development set, which improves LLaVA-1.5 by 4.7\% on multiple-choice questions and 11.6\% on open questions. We hope that our AgMMU can serve both as a \textbf{evaluation benchmark} dedicated to agriculture and a \textbf{development suite} for incorporating knowledge-intensive expertise into general-purpose VLMs.
+                We curate a dataset <b>AgMMU</b> for evaluating and developing vision-language models (VLMs) to produce factually accurate answers for knowledge-intensive expert domains. With SimpleQA pushing the factual accuracy of LLMs, VLMs also require investigation into factual accuracy. Our AgMMU concentrates on one of the most socially beneficial domains -- agriculture, which requires connecting detailed visual observation with precise knowledge to diagnose, e.g., pest identification, management instructions, etc. As a core uniqueness of our dataset, all facts, questions, and answers are extracted from 116,231 conversations between real-world users and authorized agricultural experts from US universities. 
+              </p>
+              <img src="static/images/comparison_dataset.png" alt="agmmu overview" class="center" style="width: 50%;">
+              <p>
+                Compared with existing datasets (as above), AgMMU uniquely features knowledge-intensive questions for multi-modal understanding, coming from domain experts. More importantly, AgMMU features open-ended questions (OEQs) and a training set to enable the development of researchers.
+              </p>
+              <p>  
+                After automatic processing using GPT-4o, LLaMA-70B, LLaMA-405B, AgMMU features a evaluation set of 5,793 multiple-choice evaluation questions paired and 3,390 factual open questions. We provide a development set containing 205,399 pieces of agricultural knowledge, encompassing disease identification, symptom and visual issue descriptions, management instructions, insect and pest identification, and species identification. As a multimodal factual dataset, it reveals that existing VLMs face significant challenges with questions requiring both detailed image perception and factual knowledge. Moreover, open-source VLMs still show a substantial performance gap compared to proprietary ones. To advance the development of knowledge-intensive VLMs, we conduct fine-tuning experiments using our development set, which improves LLaVA-1.5 by 4.7% on multiple-choice questions and 11.6% on open questions. We hope that our AgMMU can serve both as a <b>evaluation benchmark</b> dedicated to agriculture and a <b>development suite</b> for incorporating knowledge-intensive expertise into general-purpose VLMs.
               </p>
             </div>
           </div>
@@ -197,63 +204,38 @@
             <div class="content has-text-justified">
               <p>
                 AgMMU, short for "Agricultural Multimodal Understanding", is a specially curated benchmark aiming at multimodal understanding in the agricultural domain. Besides the significance of agriculture-related research, our AgMMU is also a novel benchmark for knowledge intensive multimodal understanding of general vision-language models since agriculture-related questions generally require precise comprehension of image details (e.g., pest identification) and accurate memorization of facts (e.g., providing management suggestions). To support studies on agricultural and knowledge-intensive VLMs, our AgMMU constructs a benchmark that contains both an agricultural knowledge base for training and an evaluation set with multiple-choice and open-ended questions. All the data for AgMMU is collected from the <a href="https://ask2.extension.org" class="">AskExtension</a> 2013-2024, which is a forum connecting users with gardening and agriculture questions to experts from Cooperative Extension/University staff within Land-Grant institutions from across the United States. These questions cover a wide range of plant knowledge, including weeds/invasive plants management, insects/pests control, general growing advice, generic plant identification, and disease/environmental stress and nutrient deficiency management.</p>
-              <img src="static/images/agmmu_statistics.png" alt="agmmu statistics" class="center">
+              <!-- <img src="static/images/agmmu_statistics.png" alt="agmmu statistics" class="center"> -->
               <br>
-              <p>
+              <!-- <p>
                 <b>Distribution and Coverage:</b> In the figure above, we show the distribution of agriculture subdomains and knowledge types, between AskExtension raw data and our curated AgMMU. We have two key observations: (1) The original AskExtension dataset is severely skewed in both subdomains and knowledge types. Subdomains like nutrient deficiency and environmental stress domains have significantly less samples than dominating domains such as disease or species identification. This imbalance is inevitably carried over to knowledge types after the knowledge extraction stage. (2) AgMMU demonstrates a much more balanced distribution in both perspectives. This is exceptionally important for our evaluation set, where we aim for proposing an all-encompassing evaluation benchmark that examines different faces of models without inductive bias. We also demonstrate the distribution of the geographic location of the person asking the question we collected from AskExtension in the United States in Figure~\ref{fig:figure3} (a).
               </p>
               <p>
                 <b>Realistic Images:</b> Our AgMMU also features significant challenges in the quality and number of images. The images in our benchmark are generally uploaded by users in various quality, resolution, and aspect ratios. This differs from the photography-level images in datasets like iNaturalist. As shown in the top overview figure, AgMMU realistically reflect the multimodal everyday scenarios encountered by gardeners and farmers. Our benchmark also exhibits the necessity of \emph{multi-image understanding} challenge, since the user uploaded several images and the experts rely on a joint reasoning of them to make the final conclusion.
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- <div class="columns is-centered has-text-centered">
+      <div class="container"></div>
+        <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Comparisons with Existing Benchmarks</h2>
+            <h2 class="title is-3">AgMMU Statistics</h2>
             <div class="content has-text-justified">
               <p>
-                To further distinguish the difference between <i>dataset</i> and other existing ones, we elaborate the benchmark details in Figure.
-                From the <i>breadth</i> perspective, the prior benchmarks are heavily focused on daily knowledge and common sense.
-                The covered image format is also limited. Our benchmark aims to cover college-level knowledge with 30 image formats including diagrams,
-                tables, charts, chemical structures, photos, paintings, geometric shapes, music sheets, medical images, etc.
-                In the <i>depth</i> aspect, the previous benchmarks normally require commonsense knowledge or simple physical or temporal reasoning.
-                In contrast, our benchmark requires deliberate reasoning with college-level subject knowledge.
+                AgMMU covers a wide range of agricultural knowledge and question types deriving from the real-world farmer-expert conversations. The knowledge is formulated into a balanced set of questions for both identification and clarification questions.
               </p>
-              <div class="content has-text-centered">
-                <img src="static/images/compare.Jpeg" alt="algebraic reasoning" class="center">
-                <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
-              </div>
+              <img src="static/images/agmmu_statistics_v2.png" alt="agmmu statistics" class="center" style="width: 60%;">
+              <br>
+              <!-- <p>
+                <b>Distribution and Coverage:</b> In the figure above, we show the distribution of agriculture subdomains and knowledge types, between AskExtension raw data and our curated AgMMU. We have two key observations: (1) The original AskExtension dataset is severely skewed in both subdomains and knowledge types. Subdomains like nutrient deficiency and environmental stress domains have significantly less samples than dominating domains such as disease or species identification. This imbalance is inevitably carried over to knowledge types after the knowledge extraction stage. (2) AgMMU demonstrates a much more balanced distribution in both perspectives. This is exceptionally important for our evaluation set, where we aim for proposing an all-encompassing evaluation benchmark that examines different faces of models without inductive bias. We also demonstrate the distribution of the geographic location of the person asking the question we collected from AskExtension in the United States in Figure~\ref{fig:figure3} (a).
+              </p>
+              <p>
+                <b>Realistic Images:</b> Our AgMMU also features significant challenges in the quality and number of images. The images in our benchmark are generally uploaded by users in various quality, resolution, and aspect ratios. This differs from the photography-level images in datasets like iNaturalist. As shown in the top overview figure, AgMMU realistically reflect the multimodal everyday scenarios encountered by gardeners and farmers. Our benchmark also exhibits the necessity of \emph{multi-image understanding} challenge, since the user uploaded several images and the experts rely on a joint reasoning of them to make the final conclusion.
+              </p> -->
             </div>
           </div>
-        </div> -->
-
-        <!-- <div class="columns is-centered m-6">
-          <div class="column is-full has-text-centered content">
-            <h2 class="title is-3">Statistics</h2>
-            <div class="carousel results-carousel">
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/mmmu_subject_distribution.Jpeg" alt="algebraic reasoning" width="95%"/>
-                  <p> Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.</p>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/statistics.png" alt="arithmetic reasoning" width="40%"/>
-                  <p> Key statistics of the MMMU benchmark</p>
-                </div>
-              </div>
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/image_type_count.png" alt="arithmetic reasoning" width="80%"/>
-                  <p> Distribution of image types in the MMMU dataset</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
+        </div>
       </div>
     </section>
 
@@ -266,13 +248,47 @@
 
     <section class="section">
       <div class="container">
-        <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Evaluation of VLMs</h2>
+            <div class="content has-text-justified">
+              <p>
+                We conduct extensive evaluation of the existing vision-language models. The knowledge-intensive questions in AgMMU require both detailed image perception and accurate memorization of facts, and brings significant challenges for the VLMs, epsecially on the open-ended OEQs.</p>
+              <img src="static/images/evaluation.png" alt="evaluation" class="center" style="width: 99%;">
+              <br>
+              <!-- <p>
+                <b>Distribution and Coverage:</b> In the figure above, we show the distribution of agriculture subdomains and knowledge types, between AskExtension raw data and our curated AgMMU. We have two key observations: (1) The original AskExtension dataset is severely skewed in both subdomains and knowledge types. Subdomains like nutrient deficiency and environmental stress domains have significantly less samples than dominating domains such as disease or species identification. This imbalance is inevitably carried over to knowledge types after the knowledge extraction stage. (2) AgMMU demonstrates a much more balanced distribution in both perspectives. This is exceptionally important for our evaluation set, where we aim for proposing an all-encompassing evaluation benchmark that examines different faces of models without inductive bias. We also demonstrate the distribution of the geographic location of the person asking the question we collected from AskExtension in the United States in Figure~\ref{fig:figure3} (a).
+              </p>
+              <p>
+                <b>Realistic Images:</b> Our AgMMU also features significant challenges in the quality and number of images. The images in our benchmark are generally uploaded by users in various quality, resolution, and aspect ratios. This differs from the photography-level images in datasets like iNaturalist. As shown in the top overview figure, AgMMU realistically reflect the multimodal everyday scenarios encountered by gardeners and farmers. Our benchmark also exhibits the necessity of \emph{multi-image understanding} challenge, since the user uploaded several images and the experts rely on a joint reasoning of them to make the final conclusion.
+              </p> -->
+            </div>
+          </div>
+        </div>
 
+        
+      </div>
 
+      <div class="container"></div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Effectiveness of Training Set</h2>
+            <div class="content has-text-justified">
+              <p>
+                By finetuning a LLaVA model with our development set, we observe significant improvement of VLMs in understanding the visual information from agricultural images and connecting them to the correct agricultural knowledge.</p>
+              <img src="static/images/finetune.png" alt="finetune" class="center" style="width: 99%;">
+              <br>
+              <!-- <p>
+                <b>Distribution and Coverage:</b> In the figure above, we show the distribution of agriculture subdomains and knowledge types, between AskExtension raw data and our curated AgMMU. We have two key observations: (1) The original AskExtension dataset is severely skewed in both subdomains and knowledge types. Subdomains like nutrient deficiency and environmental stress domains have significantly less samples than dominating domains such as disease or species identification. This imbalance is inevitably carried over to knowledge types after the knowledge extraction stage. (2) AgMMU demonstrates a much more balanced distribution in both perspectives. This is exceptionally important for our evaluation set, where we aim for proposing an all-encompassing evaluation benchmark that examines different faces of models without inductive bias. We also demonstrate the distribution of the geographic location of the person asking the question we collected from AskExtension in the United States in Figure~\ref{fig:figure3} (a).
+              </p>
+              <p>
+                <b>Realistic Images:</b> Our AgMMU also features significant challenges in the quality and number of images. The images in our benchmark are generally uploaded by users in various quality, resolution, and aspect ratios. This differs from the photography-level images in datasets like iNaturalist. As shown in the top overview figure, AgMMU realistically reflect the multimodal everyday scenarios encountered by gardeners and farmers. Our benchmark also exhibits the necessity of \emph{multi-image understanding} challenge, since the user uploaded several images and the experts rely on a joint reasoning of them to make the final conclusion.
+              </p> -->
+            </div>
+          </div>
+        </div>
 
-
-
-
+        
       </div>
     </section>
 
